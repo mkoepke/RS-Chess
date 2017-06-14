@@ -2,6 +2,7 @@ package Chess;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.xml.ws.Endpoint;
+import javax.xml.ws.Holder;
 
 
 @WebService()
@@ -14,6 +15,7 @@ public class Chess {
   private int currentPlayer = 1;
 
   public Chess() {
+
     this.board = new Board();
   }
 
@@ -40,11 +42,13 @@ public class Chess {
 
   @WebMethod
   public String getChessBoard() {
+
     return this.board.dumpBoard();
   }
 
   @WebMethod
   public int makeMove( int player, String startSquare, String endSquare ) {
+
     return 1;
   }
 

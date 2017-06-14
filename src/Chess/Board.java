@@ -1,11 +1,6 @@
 package Chess;
 
 
-enum PlayerColor {
-    WHITE,
-    BLACK;
-}
-
 public class Board {
 
     private Object squares[][] = new Object[9][9];     // all chess boards are 8 x 8.  Ordering is 8 to 1 rows and a to h columns
@@ -73,6 +68,16 @@ public class Board {
     }
 
     String dumpBoard() {
+
+        String layout = String();
+
+
+        // set the board to empty
+        for ( int i = 1; i <= 8; i++ ) {
+            for ( int j = 1; j <= 8; j++ ) {
+                squares[i][j] = null;
+            }
+        }
         return "";
     }
 }
