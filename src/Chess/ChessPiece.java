@@ -23,9 +23,9 @@ public class ChessPiece {
         return me;
     }
 
-    int movePieceTo( int row, int col ) {
+    public boolean movePieceTo( int row, int col ) {
 
-        return 1;
+        return true;
     }
 
 }
