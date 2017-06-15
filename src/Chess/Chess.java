@@ -28,7 +28,7 @@ public class Chess {
     this.board.setupBoard();
 
     String result = "Resetting the game board.   Player 1 (White) is up.";
-    System.out.println( result ) ;
+    System.out.println( result );
     return result;
   }
 
@@ -47,9 +47,31 @@ public class Chess {
   }
 
   @WebMethod
-  public int makeMove( int player, String startSquare, String endSquare ) {
+  public String makeMove( int player, String startSquare, String endSquare ) {
 
-    return 1;
+	String result;
+	// check for valid player
+	if ( player != 1 && player != 2 ) {
+		result = "You specified an invalid player.";
+		System.out.println( result )  ;
+		return result;
+	}
+	else if ( player != this.currentPlayer ) {
+		result = "It's not your turn.  You just moved.";
+		System.out.println( result )  ;
+		return result;
+	}
+	
+	this.board.movePiece( startSquare, endSquare );
+	
+	// next player's turn
+	if ( ++this.currentPlayer > 2 ) {
+		this.currentPlayer = 1;
+	}
+
+	result = "Piece successfully moved.";
+	System.out.println( result )  ;
+	return result;
   }
 
   public static void main(String[] argv) {
